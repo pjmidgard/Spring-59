@@ -65,7 +65,7 @@ qtqweqw=""
 numberschangenotexist = []
 numbers = []
 
-blockDR=168500
+blockDR=168499
 
 lenf=0
 name=""
