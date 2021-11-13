@@ -269,6 +269,42 @@ class compression:
                                             z=z+1
                                           
                                     for byte in sda:
+
+                                        if sda[0:8]=="01111111":
+                                            
+                                            sda=sda[8:]
+                                            wer=sda
+                                            n = int(wer, 2)
+                                    
+                                            qqwslenf=len(wer)
+                                            qqwslenf=(qqwslenf/8)*2
+                                            qqwslenf=str(qqwslenf)
+                                            qqwslenf="%0"+qqwslenf+"x"
+                                                
+                                               
+                                                            
+                                            jl=binascii.unhexlify(qqwslenf % n)
+                                            sssssw=len(jl)
+                                            data=jl
+                                            qqqwz=qqqwz+1
+                                            szxzzza=""
+                                            szxzs=""
+                                           
+                                            
+                                            blockw=4
+                                            blockw1=3
+                                        
+                                            #print(sssssw)
+                                                
+                                            wer=""
+                                            
+                              
+                                            assx=10
+                                            
+                                            f2.write(jl)
+                                            x2 = time()
+                                            x3 = x2-x
+                                            return print(x3) 
                                         if sda[0:1]=="1":
                                             sda=sda[1:]
                                         elif sda[0:2]=="01":
@@ -310,10 +346,15 @@ class compression:
             
                                         elif sda[sdalong-8:sdalong]=="10000000":
                                             sda=sda[:sdalong-8]
-                                          
-                                        elif sda[0:8]=="01111111":
-                                            sda=sda[8:]  
+
+
+                                    
+
+                                            
+
                                         
+
+
             
                                             
                                         sdad=len(sda)
@@ -361,7 +402,7 @@ class compression:
                                                 assx=10
                                         
                                                 f2.write(jl)
-                                                raise SystemExit
+                                                
                                                   
                                             el=eo
                                             eo=eo+14
@@ -643,7 +684,34 @@ class compression:
                                 
                                 if lenfg==0:
                                     xx=0
-                                    raise SystemExit
+
+                                    wer="01111111"+sda
+                                    lenf=len(wer)
+                                    xc=8-lenf%8
+                                    z=0
+                                    if xc!=0:
+                                        if xc!=8:
+                                            while z<xc:
+                                                szx="0"+szx
+                                                z=z+1
+                                    wer=wer+szx
+                                    lenf=len(szx)                      
+                                    szx=""        
+                                    wer="0b"+wer
+                                    n = int(wer, 2)
+                                    qqwslenf=len(wer)
+                                    qqwslenf=(qqwslenf/8)*2
+                                    qqwslenf=str(qqwslenf)
+                                    qqwslenf="%0"+qqwslenf+"x"
+                                    jl=binascii.unhexlify(qqwslenf % n)
+                                    sssssw=len(jl)
+                                    with open(namea, "ab") as f2ww:             
+                                        f2ww.write(jl)
+                                        x2 = time()
+                                        x3 = x2-x
+                                        return print(x3)
+
+                                    
                                 if lenfg>0:
                                     acvb=lenfg-1
                                     ss=0
@@ -656,39 +724,40 @@ class compression:
                                     
                                     if notexist>16383 or notexist<0:
                                         wer="01111111"+sda
-                                    	lenf=len(wer)
-                                    	xc=8-lenf%8
-                                    	z=0
-                                    	if xc!=0:
-                                    		if xc!=8:
-                                    		   while z<xc:
-                                    		   	szx="0"+szx
-                                    		   	z=z+1
-                                    	wer=wer+szx
-                                    	lenf=len(szx)                      
-                                    	szx=""        
-                                    	wer="0b"+wer
-                                    	n = int(wer, 2)
-                                    	qqwslenf=len(wer)
-                                    	qqwslenf=(qqwslenf/8)*2
-                                    	qqwslenf=str(qqwslenf)
-                                    	qqwslenf="%0"+qqwslenf+"x"
-                                    	jl=binascii.unhexlify(qqwslenf % n)
-                                    	sssssw=len(jl)
-                                    	with open(namea, "ab") as f2ww: 
-                                    		f2ww.write(jl)
-                                    		x2 = time()
-                                    		x3 = x2-x
-                                    		return print(x3)
-				                                        
+                                        lenf=len(wer)
+                                        xc=8-lenf%8
+                                        z=0
+                                        if xc!=0:
+                                            if xc!=8:
+                                                while z<xc:
+                                                    szx="0"+szx
+                                                    z=z+1
+                                        wer=wer+szx
+                                        lenf=len(szx)                      
+                                        szx=""        
+                                        wer="0b"+wer
+                                        n = int(wer, 2)
+                                        qqwslenf=len(wer)
+                                        qqwslenf=(qqwslenf/8)*2
+                                        qqwslenf=str(qqwslenf)
+                                        qqwslenf="%0"+qqwslenf+"x"
+                                        jl=binascii.unhexlify(qqwslenf % n)
+                                        sssssw=len(jl)
+                                        with open(namea, "ab") as f2ww:             
+                                            f2ww.write(jl)
+                                            jls=jl
+                                            x2 = time()
+                                            x3 = x2-x
+                                            return print(x3)
+
                                         
                                         
-                                    
+                                        
                                        
                                     else:
                                         xx=1
                                         szx=bin(notexist)[2:]
-                                        
+                                        lenf=len(szx)
                                         
                                             
                                         
@@ -705,41 +774,37 @@ class compression:
                                         szxw1=szx
                                         
                                         lenf=len(szx)
+                                        
                                        
                                         szx=""  
                                         if lenfg==0:
-	                                                                              													
-	                                                                              													wer="01111111"+sda
-	                                                                              													lenf=len(wer)
-	                                                                              													xc=8-lenf%8
-	                                                                              													z=0                                    
-	                                                                              													if xc!=0:
-	                                                                              														if xc!=8:
-	                                                                              															while z<xc:
-	                                                                              																szx="0"+szx
-	                                                                              																z=z+1
-	                                                                              																wer=wer+szx
-	                                                                              																lenf=len(szx)          
-	                                                                              																szx=""       
-	                                                                              																wer="0b"+wer
-	                                                                              																n = int(wer, 2)
-	                                                                              																qqwslenf=len(wer)
-	                                                                              																	                                                                                       qqwslenf=(qqwslenf/8)*2
-	                                                                              																	                                                                       
-	                                                                              
-	                                                                                
-	                                                                       
+                                            wer="01111111"+sda
+                                            lenf=len(wer)
+                                            xc=8-lenf%8
+                                            z=0
+                                            if xc!=0:
+                                                if xc!=8:
+                                                    while z<xc:
+                                                        szx="0"+szx
+                                                        z=z+1
+                                            wer=wer+szx
+                                            lenf=len(szx)                      
+                                            szx=""        
+                                            wer="0b"+wer
+                                            n = int(wer, 2)
+                                            qqwslenf=len(wer)
+                                            qqwslenf=(qqwslenf/8)*2
+                                            qqwslenf=str(qqwslenf)
+                                            qqwslenf="%0"+qqwslenf+"x"
+                                            jl=binascii.unhexlify(qqwslenf % n)
+                                            sssssw=len(jl)
+                                            with open(namea, "ab") as f2ww:             
+                                                f2ww.write(jl)
+                                                jls=jl
+                                                x2 = time()
+                                                x3 = x2-x
+                                                return print(x3)
 
-					                        qqwslenf=str(qqwslenf)
-					                        qqwslenf="%0"+qqwslenf+"x"
-					                        jl=binascii.unhexlify(qqwslenf % n)
-					                        sssssw=len(jl)
-					                        with open(namea, "ab") as f2ww:             
-					                            f2ww.write(jl)
-					                            jls=jl
-					                            x2 = time()
-					                            x3 = x2-x
-					                            return print(x3)
                                 b=-1
                                 kl=blockw+1
                                 bnkw=16383**(kl)
@@ -801,12 +866,38 @@ class compression:
                                     cvz=0
                                     lenf=len(szx)
                                     print(lenf)
+                                   
                                     
                                     
                                     
                                     if lenfg>0:
                                         if lenf>blockD:
-                                            raise SystemExit
+                                            wer="01111111"+sda
+                                            lenf=len(wer)
+                                            xc=8-lenf%8
+                                            z=0
+                                            if xc!=0:
+                                                if xc!=8:
+                                                    while z<xc:
+                                                        szx="0"+szx
+                                                        z=z+1
+                                            wer=wer+szx
+                                            lenf=len(szx)                      
+                                            szx=""        
+                                            wer="0b"+wer
+                                            n = int(wer, 2)
+                                            qqwslenf=len(wer)
+                                            qqwslenf=(qqwslenf/8)*2
+                                            qqwslenf=str(qqwslenf)
+                                            qqwslenf="%0"+qqwslenf+"x"
+                                            jl=binascii.unhexlify(qqwslenf % n)
+                                            sssssw=len(jl)
+                                            with open(namea, "ab") as f2ww:             
+                                                f2ww.write(jl)
+                                                jls=jl
+                                                x2 = time()
+                                                x3 = x2-x
+                                                return print(x3)
                                         xc=blockD-lenf
                                         z=0
                                         if xc!=0 and lenf!=blockD:
@@ -869,6 +960,7 @@ class compression:
                         sssssw=len(jl)
                         with open(namea, "ab") as f2ww:             
                             f2ww.write(jl)
+                            jls=jl
                             x2 = time()
                             x3 = x2-x
                             return print(x3)
