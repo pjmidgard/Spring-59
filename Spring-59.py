@@ -865,7 +865,7 @@ class compression:
                                     szx=bin(cvz)[2:]
                                     cvz=0
                                     lenf=len(szx)
-                                    print(lenf)
+                                   
                                    
                                     
                                     
