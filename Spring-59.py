@@ -724,15 +724,7 @@ class compression:
                                     
                                     if notexist>16383 or notexist<0:
                                         wer="01111111"+sda
-                                        lenf=len(wer)
-                                        xc=8-lenf%8
-                                        z=0
-                                        if xc!=0:
-                                            if xc!=8:
-                                                while z<xc:
-                                                    szx="0"+szx
-                                                    z=z+1
-                                        wer=wer+szx
+                                     
                                         lenf=len(szx)                      
                                         szx=""        
                                         wer="0b"+wer
@@ -745,7 +737,7 @@ class compression:
                                         sssssw=len(jl)
                                         with open(namea, "ab") as f2ww:             
                                             f2ww.write(jl)
-                                            jls=jl
+                                            
                                             x2 = time()
                                             x3 = x2-x
                                             return print(x3)
@@ -780,14 +772,7 @@ class compression:
                                         if lenfg==0:
                                             wer="01111111"+sda
                                             lenf=len(wer)
-                                            xc=8-lenf%8
-                                            z=0
-                                            if xc!=0:
-                                                if xc!=8:
-                                                    while z<xc:
-                                                        szx="0"+szx
-                                                        z=z+1
-                                            wer=wer+szx
+                                    
                                             lenf=len(szx)                      
                                             szx=""        
                                             wer="0b"+wer
@@ -874,14 +859,7 @@ class compression:
                                         if lenf>blockD:
                                             wer="01111111"+sda
                                             lenf=len(wer)
-                                            xc=8-lenf%8
-                                            z=0
-                                            if xc!=0:
-                                                if xc!=8:
-                                                    while z<xc:
-                                                        szx="0"+szx
-                                                        z=z+1
-                                            wer=wer+szx
+                                      
                                             lenf=len(szx)                      
                                             szx=""        
                                             wer="0b"+wer
@@ -894,7 +872,7 @@ class compression:
                                             sssssw=len(jl)
                                             with open(namea, "ab") as f2ww:             
                                                 f2ww.write(jl)
-                                                jls=jl
+                                                
                                                 x2 = time()
                                                 x3 = x2-x
                                                 return print(x3)
@@ -960,7 +938,7 @@ class compression:
                         sssssw=len(jl)
                         with open(namea, "ab") as f2ww:             
                             f2ww.write(jl)
-                            jls=jl
+                            
                             x2 = time()
                             x3 = x2-x
                             return print(x3)
