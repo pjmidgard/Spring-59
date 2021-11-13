@@ -310,6 +310,10 @@ class compression:
             
                                         elif sda[sdalong-8:sdalong]=="10000000":
                                             sda=sda[:sdalong-8]
+                                          
+                                        elif sda[0:8]=="01111111":
+                                            sda=sda[8:]  
+                                        
             
                                             
                                         sdad=len(sda)
@@ -651,15 +655,40 @@ class compression:
                                    
                                     
                                     if notexist>16383 or notexist<0:
-                                        raise SystemExit
+                                        wer="01111111"+sda
+                                    	lenf=len(wer)
+                                    	xc=8-lenf%8
+                                    	z=0
+                                    	if xc!=0:
+                                    		if xc!=8:
+                                    		   while z<xc:
+                                    		   	szx="0"+szx
+                                    		   	z=z+1
+                                    	wer=wer+szx
+                                    	lenf=len(szx)                      
+                                    	szx=""        
+                                    	wer="0b"+wer
+                                    	n = int(wer, 2)
+                                    	qqwslenf=len(wer)
+                                    	qqwslenf=(qqwslenf/8)*2
+                                    	qqwslenf=str(qqwslenf)
+                                    	qqwslenf="%0"+qqwslenf+"x"
+                                    	jl=binascii.unhexlify(qqwslenf % n)
+                                    	sssssw=len(jl)
+                                    	with open(namea, "ab") as f2ww: 
+                                    		f2ww.write(jl)
+                                    		x2 = time()
+                                    		x3 = x2-x
+                                    		return print(x3)
+				                                        
                                         
                                         
-                                        xx=0
+                                    
                                        
                                     else:
                                         xx=1
                                         szx=bin(notexist)[2:]
-                                        lenf=len(szx)
+                                        
                                         
                                             
                                         
@@ -679,7 +708,38 @@ class compression:
                                        
                                         szx=""  
                                         if lenfg==0:
-                                            raise SystemExit
+	                                                                              													
+	                                                                              													wer="01111111"+sda
+	                                                                              													lenf=len(wer)
+	                                                                              													xc=8-lenf%8
+	                                                                              													z=0                                    
+	                                                                              													if xc!=0:
+	                                                                              														if xc!=8:
+	                                                                              															while z<xc:
+	                                                                              																szx="0"+szx
+	                                                                              																z=z+1
+	                                                                              																wer=wer+szx
+	                                                                              																lenf=len(szx)          
+	                                                                              																szx=""       
+	                                                                              																wer="0b"+wer
+	                                                                              																n = int(wer, 2)
+	                                                                              																qqwslenf=len(wer)
+	                                                                              																	                                                                                       qqwslenf=(qqwslenf/8)*2
+	                                                                              																	                                                                       
+	                                                                              
+	                                                                                
+	                                                                       
+
+					                        qqwslenf=str(qqwslenf)
+					                        qqwslenf="%0"+qqwslenf+"x"
+					                        jl=binascii.unhexlify(qqwslenf % n)
+					                        sssssw=len(jl)
+					                        with open(namea, "ab") as f2ww:             
+					                            f2ww.write(jl)
+					                            jls=jl
+					                            x2 = time()
+					                            x3 = x2-x
+					                            return print(x3)
                                 b=-1
                                 kl=blockw+1
                                 bnkw=16383**(kl)
@@ -809,9 +869,9 @@ class compression:
                         sssssw=len(jl)
                         with open(namea, "ab") as f2ww:             
                             f2ww.write(jl)
-                            jls=jl
                             x2 = time()
                             x3 = x2-x
+                            return print(x3)
 
 
     def cryptograpy_compression4(self):
